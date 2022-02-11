@@ -6,7 +6,7 @@ Robot Gladiator Game
 
 **Project Description/Summary:**
 
-Lorem ipsum
+Developing a Robot Gladiator game using JavaScript - this will allow players to interact with a browser-based video game that simulates combat. Players will be able to guide their robot through a series of fights, gaining benefits and taking damage along the way.
 
 ---
 
@@ -18,8 +18,8 @@ Head over to [LINK GOES HERE] to view the page live!
 
 **Technology Used:**
 
--
--
+- JavaScript
+- HTML
 
 ---
 
