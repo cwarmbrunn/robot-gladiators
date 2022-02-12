@@ -12,7 +12,7 @@ var enemyAttack = 12;
 
 // fight function 
 var fight = function(enemyName) {
-//repeat and execute as long as the enemy-robot is alive
+// repeat and execute as long as the enemy-robot is alive
 while(playerHealth > 0 && enemyHealth > 0) {
 // ask player if they'd like to fight or run
 var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
@@ -33,7 +33,7 @@ var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? En
    }
  }
 
-//remove enemy's health by subtracting the amount set in the playerAttack variable
+// remove enemy's health by subtracting the amount set in the playerAttack variable
 enemyHealth = enemyHealth - playerAttack;
 console.log(
     playerName +  ' attacked ' + enemyName + ' now has ' + enemyHealth + ' health left.'
@@ -43,7 +43,7 @@ console.log(
 if (enemyHealth <= 0) {
     window.alert(enemyName +  ' has died!');
 
-//award player money for winning
+// award player money for winning
 playerMoney = playerMoney + 20;
 
 // leave while() loop since enemy is dead
@@ -79,6 +79,8 @@ for(var i = 0; i < enemyNames.length; i++) {
 
 // reset enemyHealth before starting new fight
     enemyHealth = 50;
+// use debugger to pause script from running and check what's going on at moment in the code
+// debugger;
 
 // pass the pickedEnemyNames variable's value into the fight function, where it will assume the value of the enemyName parameter
     fight(pickedEnemyName);
