@@ -11,7 +11,6 @@ var fightOrSkip = function () {
   var promptFight = window.prompt(
     'Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.'
   );
-
   // Enter the conditional recursive function call here!
   if (promptFight === "" || promptFight === null) {
     window.alert("You need to provide a valid answer! Please try again!");
@@ -40,6 +39,7 @@ var fightOrSkip = function () {
   }
   return false;
 };
+
 // fight function
 var fight = function (enemy) {
   var isPlayerTurn = true;
@@ -61,9 +61,11 @@ var fight = function (enemy) {
         playerInfo.name +
           " attacked " +
           enemy.name +
+          "." +
+          enemy.name +
           " now has " +
           enemy.health +
-          " health left."
+          " health remaining."
       );
 
       // check enemy's health
@@ -80,12 +82,8 @@ var fight = function (enemy) {
           enemy.name + " still has " + enemy.health + " health left. "
         );
       }
-
       // player is attacked first
     } else {
-      var damage = randomNumber(enemy.attack - 3, enemy.attack);
-
-      // remove player's health by subtracting the amount set in the enemy.attack variable.
       var damage = randomNumber(enemy.attack - 3, enemy.attack);
 
       playerInfo.health = Math.max(0, playerInfo.health - damage);
@@ -165,21 +163,36 @@ var startGame = function () {
 
 var endGame = function () {
   // if player is still alive, player wins!
+  window.alert("The game has now ended - let's see how you did!");
 
-  if (playerInfo.health > 0) {
-    window.alert(
-      "Great job, you've survived the game! You have a score of " +
-        playerInfo.money +
-        "."
+  // check localStorage for high score - if it's not there, use zero.
+
+  var highScore = localStorage.getItem("highscore");
+  if (highScore === null) {
+    highScore = 0;
+  }
+
+  if (playerInfo.money > highScore) {
+    localStorage.setItem("highscore", playerInfo.money);
+    localStorage.setItem("name", playerInfo.name);
+
+    alert(
+      playerInfo.name + " now has a high score of " + playerInfo.money + "!"
     );
   } else {
-    window.alert("You've lost your robot in battle.");
+    alert(
+      playerInfo.name +
+        " did not beat the high score of " +
+        highScore +
+        ". Maybe next time!"
+    );
   }
+
+  // ask the player if they'd like to play again
 
   var playAgainConfirm = window.confirm("Would you like to play again?");
 
   if (playAgainConfirm) {
-    // restart the game
     startGame();
   } else {
     window.alert("Thank you for playing Robot Gladiators! Come back soon!");
