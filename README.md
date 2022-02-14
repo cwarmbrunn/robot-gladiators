@@ -12,7 +12,7 @@ Developing a Robot Gladiator game using JavaScript - this will allow players to 
 
 **Live Site:**
 
-Head over to [LINK GOES HERE] to view the page live!
+Head over to https://cwarmbrunn.github.io/robot-gladiators/ to view the page live!
 
 ---
 
@@ -31,4 +31,4 @@ You can clone this repo - no special instructions to load this!
 
 **Screenshots:**
 
-![Screenshot](RELATIVE LINK GOES HERE)
+![Screenshot of Robot Gladiators website](./assets/images/site-screenshot.jpg)
